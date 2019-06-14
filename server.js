@@ -7,17 +7,7 @@ const app = express();
 // });
 
 app.get("/API/maoritranslations", (req, res) => {
-  res.send([
-    { "maori word": "Ma", "english word": "White" },
-    {
-      "maori word": "Whero",
-      "english word": "Red"
-    },
-    {
-      "maori word": "Kiaora",
-      "english word": "Hello"
-    }
-  ]);
+  res.send([{ maoriWord: "Ma", englishWord: "White" }]);
 });
 
 const PORT = process.env.PORT || 4000;
