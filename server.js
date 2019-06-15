@@ -2,9 +2,13 @@ const express = require("express");
 
 const app = express();
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+app.use("/app.js", express.static(__dirname + "/static/app.js"));
+
+app.use("/styles.css", express.static(__dirname + "/static/styles.css"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/static/index.html");
+});
 
 app.get("/API/maoritranslations", (req, res) => {
   res.send([{ maoriWord: "Ma", englishWord: "White" }]);
