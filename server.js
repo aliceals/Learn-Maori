@@ -11,7 +11,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/API/maoritranslations", (req, res) => {
-  res.send([{ maoriWord: "Ma", englishWord: "White" }]);
+  const arrayOfWords = [
+    { maoriWord: "Ma", englishWord: "White" },
+    { maoriWord: "Whero", englishWord: "Red" },
+    { maoriWord: "Kiaora", englishWord: "Hello" }
+  ];
+
+  res.send(arrayOfWords);
 });
 
 const PORT = process.env.PORT || 4000;
