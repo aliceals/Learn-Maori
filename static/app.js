@@ -19,8 +19,8 @@ fetch("/API/maoritranslations")
     return response.json();
   })
   .then(json => {
-    var jsonMaori = json[0].maoriWord;
+    var jsonMaori = json.maoriWord;
     maoriWord.innerHTML = jsonMaori;
-    var jsonEnglish = json[0].englishWord;
+    var jsonEnglish = json.englishWord;
     englishWord.innerHTML = jsonEnglish;
   });

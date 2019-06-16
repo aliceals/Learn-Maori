@@ -17,7 +17,9 @@ app.get("/API/maoritranslations", (req, res) => {
     { maoriWord: "Kiaora", englishWord: "Hello" }
   ];
 
-  res.send(arrayOfWords);
+  const randomObject = arrayOfWords[Math.floor(Math.random() * 3)];
+
+  res.send(randomObject);
 });
 
 const PORT = process.env.PORT || 4000;
