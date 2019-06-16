@@ -23,7 +23,12 @@ h2 {
 }
 
 h3 {
-  color: #39393;
+  color:#3A606E;
+  text-align: center;
+}
+
+#buttonDiv {
+  margin: 50px;
   text-align: center;
 }
 
