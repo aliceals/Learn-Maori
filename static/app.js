@@ -7,18 +7,7 @@ window.onload = function() {
 
   console.log(btn);
 
-  fetch("/API/maoritranslations")
-    .then(response => {
-      return response.json();
-    })
-    .then(json => {
-      var jsonMaori = json.maoriWord;
-      maoriWord.innerHTML = jsonMaori;
-      var jsonEnglish = json.englishWord;
-      englishWord.innerHTML = jsonEnglish;
-    });
-
-  btn.addEventListener("click", () => {
+  function apiFetch() {
     fetch("/API/maoritranslations")
       .then(response => {
         return response.json();
@@ -29,5 +18,9 @@ window.onload = function() {
         var jsonEnglish = json.englishWord;
         englishWord.innerHTML = jsonEnglish;
       });
-  });
+  }
+
+  apiFetch();
+
+  btn.addEventListener("click", apiFetch);
 };
