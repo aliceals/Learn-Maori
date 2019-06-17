@@ -20,11 +20,13 @@ h2 {
   color: #ff8552;
   text-align: center;
   padding-bottom: 20px;
+  text-transform: capitalize;
 }
 
 h3 {
   color:#3A606E;
   text-align: center;
+  text-transform: capitalize;
 }
 
 #buttonDiv {
