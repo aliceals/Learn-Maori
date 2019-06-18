@@ -1,4 +1,5 @@
 const express = require("express");
+const fetch = require("node-fetch");
 
 const app = express();
 
@@ -13,6 +14,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/API/maoritranslations", (req, res) => {
+  fetch(
+    "https://translate.yandex.net/api/v1.5/tr.json/translate?lang=en-mi&key=trnsl.1.1.20190617T084155Z.c424f51db4247778.ccfee6214ef433624454d8d8c7bad1ebb3837e17",
+    {
+      method: "POST",
+      body: "text=white",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    }
+  ).then(res => console.log(res));
+
   const arrayOfWords = [
     { maoriWord: "Ma", englishWord: randomWords() },
     { maoriWord: "Whero", englishWord: "Red" },
