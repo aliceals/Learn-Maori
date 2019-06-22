@@ -14,26 +14,22 @@ app.get("/", (req, res) => {
 });
 
 app.get("/API/maoritranslations", (req, res) => {
+  const randWord = randomWords();
   fetch(
     "https://translate.yandex.net/api/v1.5/tr.json/translate?lang=en-mi&key=trnsl.1.1.20190617T084155Z.c424f51db4247778.ccfee6214ef433624454d8d8c7bad1ebb3837e17",
     {
       method: "POST",
-      body: "text=white",
+      body: `text=${randWord}`,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     }
-  ).then(res => console.log(res));
-
-  const arrayOfWords = [
-    { maoriWord: "Ma", englishWord: randomWords() },
-    { maoriWord: "Whero", englishWord: "Red" },
-    { maoriWord: "Kiaora", englishWord: "Hello" }
-  ];
-
-  const randomObject = arrayOfWords[Math.floor(Math.random() * 3)];
-
-  res.send(randomObject);
+  )
+    .then(res => res.json())
+    .then(json => {
+      console.log(json.text[0]);
+      res.send({ maoriWord: json.text[0], englishWord: randWord });
+    });
 });
 
 const PORT = process.env.PORT || 4000;
